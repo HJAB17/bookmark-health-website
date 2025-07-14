@@ -1,0 +1,436 @@
+/* Styles généraux et réinitialisation */
+:root {
+    /* Couleurs du thème d'origine (Noir/Gris très foncé et Jaune vif) */
+    --primary-color: #FDD835; /* Jaune vif pour les boutons principaux et accents (plus proche de la maquette) */
+    --secondary-color: #FFEB3B; /* Jaune légèrement plus clair pour les survols ou autres éléments */
+    --text-color: #E0E0E0; /* Couleur de texte principale (gris clair pour un bon contraste) */
+    --heading-color: #FDD835; /* Couleur des titres (Jaune vif) */
+    --background-light: #2C2C2C; /* Fond sombre léger (gris très foncé) */
+    --background-dark: #1A1A1A; /* Fond très sombre principal (presque noir) */
+    --border-color: #444444; /* Couleur des bordures pour éléments sombres */
+    --white: #fff; /* Garde le blanc pur si nécessaire */
+    --gray-light: #3A3A3A; /* Fond léger pour les cartes (gris foncé) */
+    --gray-medium: #888888; /* Gris moyen pour certains textes sur fond sombre */
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--background-light); /* Utilise le fond sombre léger */
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-padded {
+    padding: 80px 0;
+}
+
+h1, h2, h3, h4 {
+    color: var(--heading-color);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: var(--primary-color); /* Les liens aussi en jaune vif */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color); /* Jaune plus clair au survol */
+}
+
+/* Boutons */
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    font-size: 1.1em;
+    margin: 0 10px;
+}
+
+.button.primary {
+    background-color: var(--primary-color); /* Jaune vif */
+    color: var(--background-dark); /* Texte très sombre pour un bon contraste */
+    border: 2px solid var(--primary-color);
+}
+
+.button.primary:hover {
+    background-color: var(--secondary-color); /* Jaune plus clair au survol */
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.button.secondary {
+    background-color: transparent;
+    color: var(--primary-color); /* Texte jaune vif */
+    border: 2px solid var(--primary-color);
+}
+
+.button.secondary:hover {
+    background-color: var(--primary-color); /* Jaune vif au survol */
+    color: var(--background-dark); /* Texte très sombre */
+    transform: translateY(-2px);
+}
+
+/* Section Hero (Accueil) */
+#hero-section {
+    background-color: var(--background-dark); /* Fond très sombre pour la section principale */
+    padding: 100px 20px;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+#hero-section h1 {
+    color: var(--heading-color); /* Jaune vif */
+    font-size: 4em;
+    text-align: left;
+}
+
+#hero-section h2 {
+    font-size: 2.5em;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    color: var(--text-color); /* Texte gris clair */
+    text-align: left;
+}
+
+#hero-section p {
+    font-size: 1.3em;
+    max-width: 600px;
+    margin: 0 0 40px 0;
+    color: var(--text-color); /* Texte gris clair */
+}
+
+.hero-content-wrapper {
+    flex-direction: row-reverse;
+}
+
+.hero-text-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 50%;
+    text-align: right;
+}
+
+/* Styles pour les images à l'intérieur des sections */
+.hero-image img,
+.features-image img,
+.info-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4); /* Ombre plus prononcée sur fond sombre */
+}
+
+
+/* Section Fonctionnalités */
+#features-section {
+    background-color: var(--background-light); /* Fond sombre léger */
+    text-align: left;
+}
+
+#features-section h2 {
+    text-align: left;
+    color: var(--heading-color); /* Jaune vif */
+}
+
+.features-content-wrapper {
+    flex-direction: row;
+}
+
+.features-text-content {
+    flex: 2;
+    min-width: 400px;
+}
+
+.features-image {
+    flex: 1;
+    max-width: 40%;
+    text-align: left;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    text-align: left;
+}
+
+.feature-item {
+    background-color: var(--gray-light); /* Fond de carte gris foncé */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre ajustée */
+    transition: transform 0.3s ease;
+    color: var(--text-color);
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-item h3 {
+    color: var(--primary-color); /* Jaune vif */
+    margin-top: 0;
+}
+
+.why-choose-us {
+    text-align: left;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.why-choose-us h2 {
+    text-align: left;
+    color: var(--primary-color); /* Jaune vif */
+    margin-bottom: 30px;
+}
+
+.why-choose-us ul li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: var(--text-color);
+}
+
+.why-choose-us ul li::before {
+    content: '✓';
+    color: var(--primary-color); /* Jaune vif */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.tagline {
+    font-style: italic;
+    font-size: 1.2em;
+    margin-top: 60px;
+    color: var(--gray-medium);
+    text-align: center;
+}
+
+/* Section Info (Politique de Confidentialité et FAQ) */
+#info-section {
+    background-color: var(--background-dark); /* Fond très sombre */
+    text-align: left;
+}
+
+#info-section h2 {
+    text-align: left;
+    color: var(--heading-color); /* Jaune vif */
+}
+
+.info-content-wrapper {
+    flex-direction: row-reverse;
+}
+
+.info-text-content {
+    flex: 2;
+    min-width: 400px;
+}
+
+.info-image {
+    flex: 1;
+    max-width: 40%;
+    text-align: right;
+}
+
+.privacy-policy, .faq, .coming-soon {
+    background-color: var(--gray-light); /* Fond de carte gris foncé */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre ajustée */
+    margin-bottom: 40px;
+    color: var(--text-color);
+}
+
+.privacy-policy h3, .faq h3, .coming-soon h3 {
+    color: var(--primary-color); /* Jaune vif */
+    margin-bottom: 20px;
+}
+
+.privacy-policy ul li, .faq ul li {
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.faq-item {
+    margin-bottom: 25px;
+}
+
+.faq-item h4 {
+    color: var(--heading-color); /* Jaune vif */
+    margin-bottom: 5px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--background-light); /* Fond sombre léger */
+    color: var(--white);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+footer .button.primary {
+    background-color: var(--primary-color); /* Jaune vif */
+    border-color: var(--primary-color);
+    color: var(--background-dark); /* Texte très sombre */
+}
+
+footer .button.primary:hover {
+    background-color: var(--secondary-color); /* Jaune plus clair au survol */
+    border-color: var(--secondary-color);
+}
+
+footer .button.secondary {
+    background-color: transparent;
+    border-color: var(--white);
+    color: var(--white);
+}
+
+footer .button.secondary:hover {
+    background-color: var(--white);
+    color: var(--background-dark);
+}
+
+/* Media Queries (conservées telles quelles, les couleurs s'adapteront) */
+@media (max-width: 992px) {
+    .hero-content-wrapper,
+    .features-content-wrapper,
+    .info-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text-content, .features-text-content, .info-text-content {
+        order: 2;
+        min-width: unset;
+    }
+
+    .hero-image, .features-image, .info-image {
+        order: 1;
+        max-width: 80%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    #hero-section h1, #hero-section h2, #hero-section p,
+    #features-section h2,
+    #info-section h2 {
+        text-align: center;
+    }
+
+    .why-choose-us h2 {
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    #hero-section p {
+        font-size: 1.1em;
+    }
+
+    .button {
+        padding: 12px 20px;
+        font-size: 1em;
+        margin: 10px 5px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-padded {
+        padding: 60px 0;
+    }
+
+    .why-choose-us ul li {
+        padding-left: 20px;
+    }
+
+    .why-choose-us ul li::before {
+        left: -5px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .button {
+        display: block;
+        margin: 10px auto;
+    }
+}
